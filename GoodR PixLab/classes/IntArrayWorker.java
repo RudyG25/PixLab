@@ -12,7 +12,47 @@ public class IntArrayWorker
   {
     matrix = theMatrix;
   }
-  
+  /**
+   * Method to return the largest number in the Matrix
+   * @return the largest number
+   */
+  public int getLargest() {
+      int largest = 0;
+      for (int i = 0; i < matrix.length; i++) {
+          for (int j = 0; j < matrix[0].length; j++) {
+              if (matrix[i][j] > largest) {
+                  largest = matrix[i][j];
+              }
+          }
+      }
+      return largest;
+  }
+  /**
+   * Method to return the total value of column n
+   * @return the count of n
+   */
+  public int getColTotal(int n) {
+      int total = 0;
+      for (int i = 0; i < matrix.length; i++) {
+          total += matrix[i][n];
+      }
+      return total;
+  }
+  /** 
+   * Method to return the amount of times n appears in the Matrix
+   * @return the count of n
+   */
+  public int getCount(int n) {
+      int count = 0;
+      for (int i = 0; i < matrix.length; i++) {
+          for (int j = 0; j < matrix[0].length; j++) {
+              if (matrix[i][j] == n) {
+                  count++;
+              }
+          }
+      }
+      return count;
+  }
   /**
    * Method to return the total 
    * @return the total of the values in the array
