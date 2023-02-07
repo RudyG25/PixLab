@@ -1,4 +1,5 @@
 package classes;
+import java.util.concurrent.TimeUnit;
 
 /**
  * This class contains class (static) methods
@@ -33,10 +34,15 @@ public class PictureTester
   {
     Picture temple = new Picture("temple.jpg");
     temple.explore();
-    temple.mirrorTemple();
+    temple.mirrorTemple();  
     temple.explore();
   }
-  
+  public static void testMirrorSnowman() {
+      Picture snowman = new Picture("snowman.jpg");
+      snowman.explore();
+      snowman.mirrorSnowman();
+      snowman.explore();
+    }
   /** Method to test the collage method */
   public static void testCollage()
   {
