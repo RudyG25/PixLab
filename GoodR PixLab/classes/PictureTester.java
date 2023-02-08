@@ -37,6 +37,12 @@ public class PictureTester
     temple.mirrorTemple();  
     temple.explore();
   }
+  public static void testMirrorGull() {
+      Picture gull = new Picture("seagull.jpg");
+      gull.mirrorGull();
+      gull.explore();
+      
+  }
   public static void testMirrorSnowman() {
       Picture snowman = new Picture("snowman.jpg");
       snowman.explore();
