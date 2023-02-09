@@ -194,16 +194,15 @@ public class Picture extends SimplePicture
         Pixel getPixel = null;
         Pixel placePixel = null;
         Pixel[][] pixels = this.getPixels2D();
-        int mirrorPoint = 0;
-        int row = 0;
-        for (int col = mirrorPoint; col < pixels.length; col++) {
-            row = col;
-            getPixel = pixels[row][col];
-            placePixel = pixels[col][row];
-            placePixel.setColor(getPixel.getColor());
+        for (int mirrorPoint = 0; mirrorPoint < pixels.length; mirrorPoint++) {
+            for (int row = mirrorPoint; row < pixels.length; row++) {
+                getPixel = pixels[row][mirrorPoint];
+                System.out.println(getPixel);
+                placePixel = pixels[mirrorPoint][row];
+                System.out.println(placePixel);
+                placePixel.setColor(getPixel.getColor());
+            }
         }
-
-    }
     /** copy from the passed fromPic to the
      * specified startRow and startCol in the
      * current picture
