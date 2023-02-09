@@ -11,6 +11,17 @@ import java.util.concurrent.TimeUnit;
  */
 public class PictureTester
 {
+  public static void trevorIsWrong() {
+      double hours = Math.abs(100 - 70) / 60.0;
+      System.out.println(hours);
+      double hours2 = Math.abs((100 - 70) / 60);
+      System.out.println(hours2);
+  }
+  public static void testCopySome() {
+      Picture beach = new Picture("beach.jpg");
+      beach.copySome(beach, 100, 0, 400, 600);
+      beach.explore();
+  }
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
@@ -70,9 +81,10 @@ public class PictureTester
   public static void main(String[] args)
   {
     // uncomment a call here to run a test
+    testCopySome();
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    // testZeroBlue();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();

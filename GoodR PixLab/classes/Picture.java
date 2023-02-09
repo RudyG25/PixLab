@@ -172,6 +172,7 @@ public class Picture extends SimplePicture
 
         }
     }
+
     public void mirrorGull() {
         int mirrorPoint = 362;
         Pixel leftPixel = null;
@@ -181,8 +182,8 @@ public class Picture extends SimplePicture
             for (int col = 237; col < mirrorPoint; col++) {
                 Pixel pixel = pixels[row][col];
                 if (pixel.getBlue() <= 110
-                    || pixel.getRed() <= 110
-                    || pixel.getGreen() <= 110) {
+                || pixel.getRed() <= 110
+                || pixel.getGreen() <= 110) {
                     leftPixel = pixels[row][col];
                     rightPixel = pixels[row][mirrorPoint - col + mirrorPoint];
                     rightPixel.setColor(leftPixel.getColor());
@@ -190,6 +191,7 @@ public class Picture extends SimplePicture
             }
         }
     }
+    
     public void mirrorDiagonal() {
         Pixel getPixel = null;
         Pixel placePixel = null;
@@ -197,12 +199,13 @@ public class Picture extends SimplePicture
         for (int mirrorPoint = 0; mirrorPoint < pixels.length; mirrorPoint++) {
             for (int row = mirrorPoint; row < pixels.length; row++) {
                 getPixel = pixels[row][mirrorPoint];
-                System.out.println(getPixel);
                 placePixel = pixels[mirrorPoint][row];
-                System.out.println(placePixel);
+
                 placePixel.setColor(getPixel.getColor());
             }
         }
+    }
+
     /** copy from the passed fromPic to the
      * specified startRow and startCol in the
      * current picture
@@ -225,6 +228,30 @@ public class Picture extends SimplePicture
             for (int fromCol = 0, toCol = startCol; 
             fromCol < fromPixels[0].length &&
             toCol < toPixels[0].length;  
+            fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        }   
+    }
+
+    public void copySome(Picture fromPic, 
+    int startRow, int startCol, int endRow, int endCol)
+    {
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = 0, toRow = startRow; 
+        fromRow < endRow &&
+        toRow < endRow; 
+        fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol; 
+            fromCol < endCol &&
+            toCol < endCol;  
             fromCol++, toCol++)
             {
                 fromPixel = fromPixels[fromRow][fromCol];
