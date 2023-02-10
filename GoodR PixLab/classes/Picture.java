@@ -244,12 +244,12 @@ public class Picture extends SimplePicture
         Pixel toPixel = null;
         Pixel[][] toPixels = this.getPixels2D();
         Pixel[][] fromPixels = fromPic.getPixels2D();
-        for (int fromRow = 0, toRow = startRow; 
+        for (int fromRow = startRow, toRow = startRow; 
         fromRow < endRow &&
         toRow < endRow; 
         fromRow++, toRow++)
         {
-            for (int fromCol = 0, toCol = startCol; 
+            for (int fromCol = startCol, toCol = startCol; 
             fromCol < endCol &&
             toCol < endCol;  
             fromCol++, toCol++)
@@ -276,6 +276,14 @@ public class Picture extends SimplePicture
         this.copy(flower2,500,0);
         this.mirrorVertical();
         this.write("collage.jpg");
+    }
+    public void myCollage() {
+        Picture gull = new Picture("seagull.jpg");
+        Picture beach = new Picture("beach.jpg");
+        this.copySome(gull, 0, 0, 324, 640);
+        this.copySome(beach, 324, 0, 479, 640);
+        this.write("myCollage.jpg");
+        
     }
 
     /** Method to show large changes in color 
